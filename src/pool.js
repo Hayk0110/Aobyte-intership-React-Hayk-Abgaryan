@@ -105,7 +105,7 @@ export const posts = [
             {
                 id: 2,
                 text: "et malesuada fames ac turpis egestas",
-                rate: 3
+                rate: 3,
             },
             {
                 id: 3,

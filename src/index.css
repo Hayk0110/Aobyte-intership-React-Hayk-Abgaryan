@@ -21,36 +21,78 @@ body{
 }
 
 .container{
-    display: flex;
-    border: 2px solid black;
-    border-radius: 20px;
     margin-top: 20px;
 }
 
+.container .feed .search{
+    width: 500px;
+    border: 2px solid black;
+    padding: 10px;
+    font-size: 20px;
+}
 
+.container .feed .post{
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 10px;
+}
 
-.container .list{
+.container .feed .post .postText{
+    margin-left: 10px;
+    line-height: 20px;
+}
+.container .feed .post .comment{
+    margin-left: 10px;
+    line-height: 20px;
+}
+
+.container .feed .post .comment .commentText{
+    display: flex;
+    align-items: center;
+}
+
+.container .feed .post .comment .commentText .rate{
+    width: 35px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container .columns{
+    display: flex;
+    border: 2px solid black;
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+.container .columns .list{
     width: 550px;
     height: 400px;
     padding: 10px;
     overflow: scroll;
 }
 
-.container .list:nth-child(2){
+.container .columns .list:nth-child(2){
     border-left: 2px solid black;
 }
 
-.container .list .buttons{
+.container .columns .list .buttons{
     margin-bottom: 10px;
+    display: flex;
 }
 
-.container .list .buttons .btn{
+.container .columns .list .buttons .btn{
     width: 40px;
     height: 40px;
     margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.container .list .post{
+.container .columns .list .item{
     height: 60px;
     border: 1px solid black;
     border-radius: 10px;
@@ -60,12 +102,12 @@ body{
     margin-bottom: 10px;
 }
 
-.container .list .post .text{
+.container .columns .list .item .text{
     width: 300px;
     font-size: 14px;
 }
 
-.container .list .post .rate{
+.container .columns .list .item .rate{
     width: 30px;
     height: 30px;
     font-size: 15px;

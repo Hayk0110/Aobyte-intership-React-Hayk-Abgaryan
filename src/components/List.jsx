@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Post from "./Post";
+import ListItem from "./ListItem";
 import { Sort } from "../helpers/helper";
+import { ImportExport } from "@mui/icons-material";
 
 const asc = "ascending order";
 const desc = "descending order"
@@ -57,11 +58,11 @@ export default class List extends Component {
       <div className="list">
         <div className="buttons">
           <button className="btn" onClick={()=>this.props.addPost(this.addHandler)}>+</button>
-          <button className="btn" onClick={this.sortHandler}>sort</button>
+          <button className="btn" onClick={this.sortHandler}><ImportExport /></button>
         </div>
         {
           this.state.list.map(post=>(
-            <Post 
+            <ListItem 
             key={post.id}
             text={post.postText}
             id={post.id}

@@ -1,7 +1,7 @@
 export function rateAvarage(arr){
     arr.map(post=>{
         post.avarageRate = +(post.comments.reduce((total,next)=> total + next.rate,0) / post.comments.length).toFixed(1);
-        post.isShown = false;
+        post.isInList = false;
       })
     return Sort(arr,"descending order");
 }
@@ -20,7 +20,6 @@ export function Sort(arr,type){
 export function rateColor(rate){
   switch(true){
     case rate >= 8:
-      console.log("hi")
       return {backgroundColor: 'green'};
     case rate >= 6 && rate < 8:
       return {backgroundColor: 'lightgreen'};
@@ -30,3 +29,18 @@ export function rateColor(rate){
       return {backgroundColor: 'red'};
   }
 }
+
+export function search(arr,value){
+  const newArr = arr.map((post) => {
+    const isFound = post.comments.find((com) =>
+      com.text.toLowerCase().includes(value.toLowerCase())
+    );
+
+    if (isFound) {
+      return post;
+    }
+    
+  }).filter((post) => post);
+
+  return newArr;
+};

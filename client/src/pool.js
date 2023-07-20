@@ -2,7 +2,7 @@ export const posts = [
     {
         id: 1,
         postText: "Lorem ispum nibh tortor id aliquet lectus proin nibh nisl condimentum",
-        comments:[
+        comments: [
             {
                 id: 1,
                 text: "ornare quam viverra orci sagittis eu",
@@ -23,7 +23,7 @@ export const posts = [
     {
         id: 2,
         postText: "Lorem ispum nibh tortor id aliquet lectus proin nibh nisl condimentum",
-        comments:[
+        comments: [
             {
                 id: 1,
                 text: "ultrices eros in cursus turpis massa",
@@ -48,13 +48,13 @@ export const posts = [
                 id: 5,
                 text: "nulla at volutpat diam ut venenatis",
                 rate: 9
-            
-        }]
+
+            }]
     },
     {
         id: 3,
         postText: "Lorem ispum nibh tortor id aliquet lectus proin nibh nisl condimentum",
-        comments:[
+        comments: [
             {
                 id: 1,
                 text: "eleifend mi in nulla posuere sollicitudind",
@@ -75,7 +75,7 @@ export const posts = [
     {
         id: 4,
         postText: "Lorem ispum nibh tortor id aliquet lectus proin nibh nisl condimentum",
-        comments:[
+        comments: [
             {
                 id: 1,
                 text: "cursus sit amet dictum sit amet",
@@ -96,7 +96,7 @@ export const posts = [
     {
         id: 5,
         postText: "Lorem ispum nibh tortor id aliquet lectus proin nibh nisl condimentum",
-        comments:[
+        comments: [
             {
                 id: 1,
                 text: "mauris in aliquam sem fringilla ut morbi tincidunt augue interdum velit euismod",
@@ -127,7 +127,7 @@ export const posts = [
     {
         id: 6,
         postText: "Lorem ispum nibh tortor id aliquet lectus proin nibh nisl condimentum",
-        comments:[
+        comments: [
             {
                 id: 1,
                 text: "mauris in aliquam sem fringilla ut morbi tincidunt augue interdum velit euismod",
@@ -163,7 +163,7 @@ export const posts = [
     {
         id: 7,
         postText: "Lorem ispum nibh tortor id aliquet lectus proin nibh nisl condimentum",
-        comments:[
+        comments: [
             {
                 id: 1,
                 text: "sit amet nisl suscipit adipiscing bibendum",
@@ -184,7 +184,7 @@ export const posts = [
     {
         id: 8,
         postText: "Lorem ispum nibh tortor id aliquet lectus proin nibh nisl condimentum",
-        comments:[
+        comments: [
             {
                 id: 1,
                 text: "ut aliquam purus sit amet luctus venenatis",
@@ -215,7 +215,7 @@ export const posts = [
     {
         id: 9,
         postText: "Lorem ispum nibh tortor id aliquet lectus proin nibh nisl condimentum",
-        comments:[
+        comments: [
             {
                 id: 1,
                 text: "molestie ac feugiat sed lectus vestibulum mattis",
@@ -236,7 +236,7 @@ export const posts = [
     {
         id: 10,
         postText: "Lorem ispum nibh tortor id aliquet lectus proin nibh nisl condimentum",
-        comments:[
+        comments: [
             {
                 id: 1,
                 text: "et netus et malesuada fames ac turpis",

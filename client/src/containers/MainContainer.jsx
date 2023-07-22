@@ -1,25 +1,18 @@
-import React, { Component } from "react";
-import List from "../components/List";
-import { posts } from "../pool";
-import { rateAvarage } from "../helpers";
-import Feed from "../components/Feed";
+import React, { useState } from "react";
+
 import ListContainer from "./ListContainer";
 import FeedContainer from "./FeedContainer";
 
-export default class MainContainer extends Component {
-  constructor(props) {
-    super(props);
+import { posts } from "../pool";
+import { rateAvarage } from "../helpers";
 
-    this.state = {
-      pool: rateAvarage(posts),
-    };
+const MainContainer = () => {
 
-    this.addPost = this.addPost.bind(this);
-    this.changeShown = this.changeShown.bind(this);
-  }
+  const [pool,setPool] = useState(rateAvarage(posts));
 
-  addPost(changeList) {
-    let arr = this.state.pool;
+  const addPost = (changeList) => {
+    let arr = pool;
+
     for (const post of arr) {
       if (!post.isInList) {
         post.isInList = true;
@@ -27,35 +20,38 @@ export default class MainContainer extends Component {
         break;
       }
     }
-    this.setState({ pool: arr });
+    
+    setPool(arr);
   }
 
-  changeShown(id) {
-    let arr = this.state.pool;
-    for (const post of this.state.pool) {
+  const changeShown = (id) => {
+    let arr = pool;
+
+    for (const post of arr) {
       if (post.id === id) {
         post.isInList = false;
         break;
       }
     }
-    this.setState({ pool: arr });
+
+    setPool(arr);
   }
 
-  render() {
-    return (
-      <div className="container">
-        <FeedContainer posts={this.state.pool} />
+  return (
+    <div className="container">
+        <FeedContainer posts={pool} />
         <div className="columns">
           <ListContainer
-            addPost={this.addPost}
-            changeShown={this.changeShown}
+            addPost={addPost}
+            changeShown={changeShown}
           />
           <ListContainer
-            addPost={this.addPost}
-            changeShown={this.changeShown}
+            addPost={addPost}
+            changeShown={changeShown}
           />
         </div>
       </div>
-    );
-  }
+  )
 }
+
+export default MainContainer;

@@ -1,32 +1,34 @@
 import React, { Component } from "react";
+
 import ListItem from "./ListItem";
+
 import { Add, ImportExport } from "@mui/icons-material";
 
-export default class List extends Component {
-  render() {
-    return (
-      <div className="list">
+const List = ({ addPost, list, sortHandler, removePost, addHandler }) => {
+  return (
+    <div className="list">
         <div className="buttons">
           <button
             className="btn"
-            onClick={() => this.props.addPost(this.props.addHandler)}
+            onClick={() => addPost(addHandler)}
           >
             <Add />
           </button>
-          <button className="btn" onClick={this.props.sortHandler}>
+          <button className="btn" onClick={sortHandler}>
             <ImportExport />
           </button>
         </div>
-        {this.props.list.map((post) => (
+        {list.map((post) => (
           <ListItem
             key={post.id}
             text={post.postText}
             id={post.id}
             rate={post.averageRate}
-            removePost={this.props.removePost}
+            removePost={removePost}
           />
         ))}
       </div>
-    );
-  }
+  )
 }
+
+export default List

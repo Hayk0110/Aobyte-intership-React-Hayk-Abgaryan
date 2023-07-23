@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Feed from "../components/Feed";
 
 const FeedContainer = ({ posts }) => {
 
   const [input, setInput] = useState("");
-  const [pool, setPool] = useState([...posts].sort((a,b) => a.id - b.id));
+  const [pool, setPool] = useState([]);
+
+  useEffect(()=>{
+    setPool([...posts].sort((a,b)=>a.id - b.id))
+  },[posts])
 
   const updatePool = (newComments, id) => {
     

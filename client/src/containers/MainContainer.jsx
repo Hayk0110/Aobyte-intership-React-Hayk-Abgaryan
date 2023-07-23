@@ -7,13 +7,12 @@ import { posts } from "../pool";
 import { rateAvarage } from "../helpers";
 
 const MainContainer = () => {
-
-  const [pool,setPool] = useState(rateAvarage(posts));
+  const [pool, setPool] = useState(rateAvarage(posts));
 
   const addPost = (changeList) => {
-      let arr = pool;
+    const arr = pool.map((post) => ({ ...post }));
 
-      for (const post of arr) {
+    for (const post of arr) {
       if (!post.isInList) {
         post.isInList = true;
         changeList(post);
@@ -22,10 +21,11 @@ const MainContainer = () => {
     }
 
     setPool(arr);
-  }
+  };
+
 
   const changeShown = (id) => {
-    let arr = pool;
+    let arr = pool.map((post) => ({...post}));
 
     for (const post of arr) {
       if (post.id === id) {
@@ -35,23 +35,17 @@ const MainContainer = () => {
     }
 
     setPool(arr);
-  }
+  };
 
   return (
     <div className="container">
-        <FeedContainer posts={pool} />
-        <div className="columns">
-          <ListContainer
-            addPost={addPost}
-            changeShown={changeShown}
-          />
-          <ListContainer
-            addPost={addPost}
-            changeShown={changeShown}
-          />
-        </div>
+      <FeedContainer posts={pool} />
+      <div className="columns">
+        <ListContainer addPost={addPost} changeShown={changeShown} />
+        <ListContainer addPost={addPost} changeShown={changeShown} />
       </div>
-  )
-}
+    </div>
+  );
+};
 
 export default MainContainer;

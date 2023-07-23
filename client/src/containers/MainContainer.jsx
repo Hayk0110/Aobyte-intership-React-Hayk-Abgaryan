@@ -11,16 +11,16 @@ const MainContainer = () => {
   const [pool,setPool] = useState(rateAvarage(posts));
 
   const addPost = (changeList) => {
-    let arr = pool;
+      let arr = pool;
 
-    for (const post of arr) {
+      for (const post of arr) {
       if (!post.isInList) {
         post.isInList = true;
         changeList(post);
         break;
       }
     }
-    
+
     setPool(arr);
   }
 

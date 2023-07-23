@@ -1,7 +1,7 @@
 import { Delete, Star, ThumbUp } from "@mui/icons-material";
 import React, { Component } from "react";
 
-export default class Comment extends Component {
+export  class CommentClass extends Component {
   constructor(props) {
     super(props);
 
@@ -33,3 +33,31 @@ export default class Comment extends Component {
     );
   }
 }
+
+const Comment = ({ comment, comments, updateComments }) => {
+
+  const deleteComment = (id) => {
+    const newComments = comments.filter((com) => com.id !== id);
+    updateComments(newComments);
+  }
+
+  return (
+    <div className="comment">
+        <div className="commentWrapper">
+          <p className="commentText">{comment.text}</p>
+          <p className="rate">
+            <Star className="star" />
+            {comment.rate}
+          </p>
+          <button
+            className="btn"
+            onClick={() => deleteComment(comment.id)}
+          >
+            <Delete />
+          </button>
+        </div>
+      </div>
+  )
+}
+
+export default Comment

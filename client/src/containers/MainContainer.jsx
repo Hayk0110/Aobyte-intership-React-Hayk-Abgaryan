@@ -1,25 +1,17 @@
-import React, { Component } from "react";
-import List from "../components/List";
-import { posts } from "../pool";
-import { rateAvarage } from "../helpers";
-import Feed from "../components/Feed";
+import React, { useState } from "react";
+
 import ListContainer from "./ListContainer";
 import FeedContainer from "./FeedContainer";
 
-export default class MainContainer extends Component {
-  constructor(props) {
-    super(props);
+import { posts } from "../pool";
+import { rateAvarage } from "../helpers";
 
-    this.state = {
-      pool: rateAvarage(posts),
-    };
+const MainContainer = () => {
+  const [pool, setPool] = useState(rateAvarage(posts));
 
-    this.addPost = this.addPost.bind(this);
-    this.changeShown = this.changeShown.bind(this);
-  }
+  const addPost = (changeList) => {
+    const arr = pool.map((post) => ({ ...post }));
 
-  addPost(changeList) {
-    let arr = this.state.pool;
     for (const post of arr) {
       if (!post.isInList) {
         post.isInList = true;
@@ -27,35 +19,33 @@ export default class MainContainer extends Component {
         break;
       }
     }
-    this.setState({ pool: arr });
-  }
 
-  changeShown(id) {
-    let arr = this.state.pool;
-    for (const post of this.state.pool) {
+    setPool(arr);
+  };
+
+
+  const changeShown = (id) => {
+    let arr = pool.map((post) => ({...post}));
+
+    for (const post of arr) {
       if (post.id === id) {
         post.isInList = false;
         break;
       }
     }
-    this.setState({ pool: arr });
-  }
 
-  render() {
-    return (
-      <div className="container">
-        <FeedContainer posts={this.state.pool} />
-        <div className="columns">
-          <ListContainer
-            addPost={this.addPost}
-            changeShown={this.changeShown}
-          />
-          <ListContainer
-            addPost={this.addPost}
-            changeShown={this.changeShown}
-          />
-        </div>
+    setPool(arr);
+  };
+
+  return (
+    <div className="container">
+      <FeedContainer posts={pool} />
+      <div className="columns">
+        <ListContainer addPost={addPost} changeShown={changeShown} />
+        <ListContainer addPost={addPost} changeShown={changeShown} />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default MainContainer;

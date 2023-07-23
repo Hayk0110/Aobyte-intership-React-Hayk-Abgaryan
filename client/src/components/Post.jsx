@@ -1,31 +1,32 @@
-import { ImportExport, Send } from "@mui/icons-material";
 import React, { Component } from "react";
+
 import Comment from "./Comment";
 
-export default class Post extends Component {
-  render() {
-    return (
-      <div className="post">
-        <button className="btn sort" onClick={this.props.sortComments}>
+import { ImportExport, Send } from "@mui/icons-material";
+
+const Post = ({ post, sortComments, updateComments, addComment, changeInput, input, comments }) => {
+  return (
+    <div className="post">
+        <button className="btn sort" onClick={sortComments}>
           <ImportExport />
         </button>
         <p className="postText">
-          {this.props.post.id}. {this.props.post.postText}
+          {post.id}. {post.postText}
         </p>
-        {this.props.comments.map((comment) => (
+        {comments.map((comment) => (
           <Comment
             key={comment.id}
             comment={comment}
-            comments={this.props.comments}
-            updateComments={this.props.updateComments}
+            comments={comments}
+            updateComments={updateComments}
           />
         ))}
-        <form onSubmit={this.props.addComment} className="postForm">
+        <form onSubmit={addComment} className="postForm">
           <input
             className="postInput"
             type="text"
-            value={this.props.input}
-            onChange={(e) => this.props.changeInput(e.target.value)}
+            value={input}
+            onChange={(e) => changeInput(e.target.value)}
             placeholder="Write your comment"
           />
           <button className="btn">
@@ -33,6 +34,7 @@ export default class Post extends Component {
           </button>
         </form>
       </div>
-    );
-  }
+  )
 }
+
+export default Post

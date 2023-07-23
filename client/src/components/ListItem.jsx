@@ -2,7 +2,7 @@ import { Delete } from "@mui/icons-material";
 import React, { Component } from "react";
 import { rateColor } from "../helpers";
 
-export default class ListItem extends Component {
+export class ListItemClass extends Component {
   constructor(props) {
     super(props);
 
@@ -29,3 +29,26 @@ export default class ListItem extends Component {
     );
   }
 }
+
+const ListItem = ({ text, id, rate, removePost }) => {
+
+  const remove = () => {
+    removePost(id);
+  }
+
+  return (
+    <div className="item">
+        <p className="text">
+          {id}. {text}
+        </p>
+        <p className="rate" style={rateColor(rate)}>
+          {rate}
+        </p>
+        <button className="btn" onClick={remove}>
+          <Delete />
+        </button>
+      </div>
+  )
+}
+
+export default ListItem
